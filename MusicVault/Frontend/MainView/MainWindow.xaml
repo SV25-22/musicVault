@@ -1,0 +1,36 @@
+﻿<Window xmlns:UrednikView="clr-namespace:MusicVault.Frontend.MainView.RegistrovaniView.UrednikView"  xmlns:ContentView="clr-namespace:MusicVault.Frontend.MainView.ContentView"  xmlns:RegistrovaniView="clr-namespace:MusicVault.Frontend.MainView.RegistrovaniView"  x:Class="MusicVault.Frontend.MainView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicVault.Frontend.MainView"
+        mc:Ignorable="d"
+        Title="MusicVault" Height="600" Width="800" MinHeight="550" MinWidth="700"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Početna">
+                <Grid>
+                    <Grid x:Name="loginTab">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <local:LoginControl Margin="28,0,0,0" />
+                        <local:RegistrationControl Grid.Column="1" Margin="0,0,18,0" />
+                    </Grid>
+                    <RegistrovaniView:ProfileControl x:Name="profileTab" Visibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sadržaj">
+                <ContentView:SearchControl />
+            </TabItem>
+            <TabItem Header="Glasanje" Name="glasanjeTab" Visibility="Hidden">
+                <RegistrovaniView:VotingControl />
+            </TabItem>
+            <TabItem Header="Dodavanje sadržaja i recenzija" Name="addContentTab" Visibility="Hidden">
+                <UrednikView:CreateContentControl />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

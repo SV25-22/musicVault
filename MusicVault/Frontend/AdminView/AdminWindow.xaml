@@ -1,0 +1,23 @@
+﻿<Window x:Class="MusicVault.Frontend.AdminView.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicVault.Frontend.AdminView"
+        mc:Ignorable="d"
+        Title="MusicVault (Admin)" Height="600" Width="800" MinHeight="550" MinWidth="700"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Urednici">
+                <local:UrednikControl x:Name="urednikControl"/>
+            </TabItem>
+            <TabItem Header="Sadržaj">
+                <local:ContentControl x:Name="contentControl"/>
+            </TabItem>
+            <TabItem Header="Glasanja">
+                <local:VotingControl x:Name="votingControl"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

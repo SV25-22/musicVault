@@ -1,0 +1,43 @@
+﻿<Window x:Class="MusicVault.Frontend.AdminView.ContentView.AddViews.AddAlbumWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MusicVault.Frontend.AdminView.ContentView.AddViews"
+        xmlns:common="clr-namespace:MusicVault.Frontend.CommonControls"
+        mc:Ignorable="d"
+        Title="Dodavanje albuma" Height="400" Width="500" MinHeight="350" MinWidth="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-92,-80,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Opis:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Name="OpisTxtBox" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24"/>
+
+            <Label Grid.Row="1" Content="Način čuvanja:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox Name="NacinComboBox" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" ItemsSource="{Binding NaciniCuvanja}" SelectedIndex="0"/>
+
+            <Label Grid.Row="2" Content="Žanrovi:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <common:MultiselectControl x:Name="ZanrComboBox" Grid.Row="2" Grid.Column="1" Width="180" Height="24" Items="{Binding Zanrovi}"/>
+
+            <Label Grid.Row="3" Content="Izvođači:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <common:MultiselectControl x:Name="IzvComboBox" Grid.Row="3" Grid.Column="1" Width="180" Height="24" Items="{Binding Izvodjaci}"/>
+
+            <Label Grid.Row="4" Content="Urednik:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox Name="UrednikComboBox" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" ItemsSource="{Binding Urednici}" SelectedIndex="0" DisplayMemberPath="ImePrezime"/>
+        </Grid>
+
+        <Button Content="Dodaj album" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Center" Width="180" Height="34" Click="Add_Click"/>
+    </Grid>
+</Window>

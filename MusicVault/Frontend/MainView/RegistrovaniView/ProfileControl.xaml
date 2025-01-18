@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="MusicVault.Frontend.MainView.RegistrovaniView.ProfileControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicVault.Frontend.MainView.RegistrovaniView"
+             mc:Ignorable="d" Height="500" Width="600">
+    <Grid>
+        <Label Content="Dobro došli!" Margin="0,-434,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-97,-78,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Ime:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" 
+             Text="{Binding Path=Korisnik.Ime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Mode=TwoWay}"/>
+
+            <Label Grid.Row="1" Content="Prezime:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" 
+             Text="{Binding Path=Korisnik.Prezime, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Mode=TwoWay}" />
+
+            <Label Grid.Row="2" Content="Telefon:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" 
+             Text="{Binding Path=Korisnik.Telefon, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Mode=TwoWay}"/>
+
+            <Label Grid.Row="3" Content="E-mail:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" 
+             Text="{Binding Path=Korisnik.Mejl, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, Mode=TwoWay}"/>
+
+            <Label Grid.Row="4" Content="Šifra:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <PasswordBox Grid.Row="4" Grid.Column="1" PasswordChanged="LozinkaBox_LozinkaChanged" VerticalContentAlignment="Center" Width="180" Height="24"/>
+
+            <Label Grid.Row="5" Content="Pol:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" Width="180" Height="24" 
+              ItemsSource="{Binding PolVrednosti}" SelectedItem="{Binding Korisnik.Pol, Mode=TwoWay}" DisplayMemberPath="."/>
+
+            <Label Grid.Row="6" Content="Datum rođenja:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <DatePicker Grid.Row="6" Grid.Column="1" Name="GodRodjenjaPicker" VerticalContentAlignment="Center" Width="180" Height="24" FirstDayOfWeek="Monday" 
+                SelectedDate="{Binding Path=Korisnik.GodRodjenja, Mode=TwoWay}" PreviewTextInput="BirthdayPicker_PreviewTextInput"/>
+        </Grid>
+
+        <Button Content="Ažuriraj podatke" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Center" Width="180" Height="34" Click="Update_Click"/>
+        <Button Content="Odjavi se" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Center" Width="180" Height="34" Click="Logout_Click"/>
+    </Grid>
+</UserControl>

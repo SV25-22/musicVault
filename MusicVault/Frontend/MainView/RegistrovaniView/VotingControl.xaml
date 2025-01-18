@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="MusicVault.Frontend.MainView.RegistrovaniView.VotingControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MusicVault.Frontend.MainView.RegistrovaniView"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500" Loaded="OnControlLoaded">
+    <Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-62,-60,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33"/>
+                <RowDefinition Height="33"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Content="Glasanje:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox Name="GlasanjeComboBox" Grid.Row="0" Grid.Column="1" Width="250" Height="24" ItemsSource="{Binding Glasanja}" DisplayMemberPath="Naziv" SelectionChanged="GlasanjeComboBox_SelectionChanged" SelectedIndex="0"/>
+
+            <Label Grid.Row="1" Content="Odgovor:" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox Name="OdgovorComboBox" Grid.Row="1" Grid.Column="1" Width="250" Height="24" ItemsSource="{Binding Odgovori}" DisplayMemberPath="Opis" SelectionChanged="OdgovorComboBox_SelectionChanged" SelectedIndex="0"/>
+        </Grid>
+
+        <Button Name="odgBtn" Content="Glasaj" HorizontalAlignment="Center" Margin="0,105,0,0" VerticalAlignment="Center" Width="250" Height="34" Click="odgBtn_Click" IsEnabled="False"/>
+    </Grid>
+</UserControl>
